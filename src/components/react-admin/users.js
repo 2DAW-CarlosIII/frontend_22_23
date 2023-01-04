@@ -1,4 +1,4 @@
-// in src/components/users.tsx
+// in src/components/react-admin/users.tsx
 import { useMediaQuery } from '@mui/material';
 import { List, SimpleList, Datagrid, TextField, EmailField } from 'react-admin';
 
