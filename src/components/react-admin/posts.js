@@ -12,6 +12,8 @@ import {
     TextInput
   } from 'react-admin';
 
+import { useRecordContext} from 'react-admin';
+
 export const PostList = () => (
     <List>
       <Datagrid>
@@ -23,8 +25,13 @@ export const PostList = () => (
     </List>
   );
 
+const PostTitle = () => {
+  const record = useRecordContext();
+  return <span>Post {record ? `"${record.title}"` : ''}</span>;
+};
+
 export const PostEdit = () => (
-    <Edit>
+    <Edit title={<PostTitle />}>
     <SimpleForm>
         <TextInput source="id" disabled />
         <ReferenceInput source="userId" reference="users" />
