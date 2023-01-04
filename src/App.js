@@ -32,13 +32,13 @@ export default App;
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { UserList } from './components/react-admin/users';
-import { PostList } from './components/react-admin/posts';
+import { PostList, PostEdit, PostCreate } from './components/react-admin/posts';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource name="posts" list={PostList} />
+    <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} />
     <Resource name="users" list={UserList} recordRepresentation="name" />
   </Admin>
 );
