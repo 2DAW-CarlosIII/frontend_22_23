@@ -18,8 +18,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin/*" element={<RAdmin />} />
+        <Route path="/pre_dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/*" element={<RAdmin />} />
         <Route path="*" element={<NotFoundPage/>}
         />
       </Routes>
