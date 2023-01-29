@@ -6,20 +6,22 @@ import Input from 'components/Input'
 import Label from 'components/Label'
 import { useLogin, useNotify, Notification } from 'react-admin';
 import { useState } from 'react'
-import { Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const login = useLogin();
   const notify = useNotify();
+  const handleDataProvider = props.handleDataProvider
 
   const submitForm = async event => {
     event.preventDefault()
-    login({ email, password }).catch(() =>
+    login({ email, password, handleDataProvider })
+      .catch(() =>
         notify('Invalid email or password')
-    );
+      );
   }
 
   return (
@@ -70,7 +72,7 @@ const Login = () => {
                 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
               <span className="ml-2 text-sm text-gray-600">
-                  Remember me
+                Remember me
               </span>
             </label>
           </div>
@@ -79,10 +81,10 @@ const Login = () => {
               to="/forgot-password"
               className="underline text-sm text-gray-600 hover:text-gray-900"
             >
-                Forgot your password?
+              Forgot your password?
             </NavLink>
             <Button className="ml-3">
-                Login
+              Login
             </Button>
           </div>
         </form>
